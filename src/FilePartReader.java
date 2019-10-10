@@ -32,7 +32,7 @@ public class FilePartReader {
         if (fromLine > 0) {
             for (int i = fromLine - 1; i < toLine; i++) {
                 returnLines.append(content[i]);
-                returnLines.append(" ");
+                returnLines.append("\n");
             }
         }
         return returnLines.toString();
