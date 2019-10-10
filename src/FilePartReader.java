@@ -26,7 +26,7 @@ public class FilePartReader {
         return new String(Files.readAllBytes(dunno));
     }
 
-    public String readLines(Integer fromLine, Integer toLine) throws IOException {
+    public String readLines() throws IOException {
         String[] content = read().split("\n");
         StringBuilder returnLines = new StringBuilder();
         if (fromLine > 0) {
