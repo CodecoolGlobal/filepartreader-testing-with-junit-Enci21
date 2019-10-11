@@ -21,12 +21,18 @@ public class FilePartReader {
         }
     }
 
-    public String read() throws IOException {
+    public String read(){
         Path dunno = FileSystems.getDefault().getPath("doc/this.txt");
-        return new String(Files.readAllBytes(dunno));
+        try {
+            return new String(Files.readAllBytes(dunno));
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    public String readLines() throws IOException {
+    public String readLines() {
         String[] content = read().split("\n");
         StringBuilder returnLines = new StringBuilder();
         if (fromLine > 0) {
