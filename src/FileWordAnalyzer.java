@@ -1,9 +1,9 @@
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class FileWordAnalyzer {
+
     private FilePartReader reader = new FilePartReader("doc/this.txt", 1, 5);
 
     public FileWordAnalyzer(FilePartReader reader) {

@@ -22,14 +22,14 @@ public class FilePartReader {
     }
 
     public String read(){
-        Path dunno = FileSystems.getDefault().getPath("doc/this.txt");
         try {
-            return new String(Files.readAllBytes(dunno));
+            return new String(Files.readAllBytes(Paths.get(filePath)));
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        System.out.println("This file doesn't exist.");
+        return  "";
     }
 
     public String readLines() {
@@ -42,5 +42,9 @@ public class FilePartReader {
             }
         }
         return returnLines.toString();
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 }
