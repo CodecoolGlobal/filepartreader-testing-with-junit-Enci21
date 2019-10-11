@@ -11,13 +11,13 @@ public class FileWordAnalyzer {
     }
 
     public String[] getWordsOrderedAlphabetically() {
-        String[] words = reader.readLines().replace("\n", " ").split(" ");
+        String[] words = reader.readLines().split("\n");
         Arrays.sort(words);
         return words;
     }
 
     public List getWordsContainingSubstring(String subString) {
-        String[] words = reader.readLines().replace("\n", " ").split(" ");
+        String[] words = reader.readLines().replace("\n", " ").split("\n");
         List<String> wordsContainsSubString = new ArrayList<>();
         for (String word : words) {
             if (word.contains(subString)) {

@@ -12,8 +12,16 @@ class FileWordAnalyzerTest {
 
     @Test
     public void testGetWordsOrderedAlphabeticallyIsAlphabetically(){
-        String[] words = reader.readLines().replace("\n", " ").split(" ");
-        analyzer.getWordsOrderedAlphabetically().equals(words);
+        String[] words = reader.readLines().split("\n");
+        String[] wordsAlphabetically = {"alma", "ananász", "banán", "eper", "kávé", "körte", "sajt", "szőlő"};
+        for (String word : words){
+            System.out.println(word);
+        }
+        System.out.println();
+        for (String w : wordsAlphabetically){
+            System.out.println(w);
+        }
+        assertEquals(wordsAlphabetically, analyzer.getWordsOrderedAlphabetically());
     }
 
     @Test
@@ -21,6 +29,6 @@ class FileWordAnalyzerTest {
         List<String> words = new ArrayList<>();
         words.add("banán");
         words.add("ananász");
-        words.equals(analyzer.getWordsContainingSubstring("ná"));
+        assertEquals(words,analyzer.getWordsContainingSubstring("ná") );
     }
 }
