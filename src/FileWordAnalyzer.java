@@ -31,7 +31,9 @@ public class FileWordAnalyzer {
         String[] words = reader.readLines().replace("\n", " ").split(" ");
         List<String> palindromes = new ArrayList<>();
         for (String word : words) {
-            palindromes.add(new StringBuilder(word).reverse().toString());
+            if (word.equals(new StringBuilder(word).reverse().toString())) {
+                palindromes.add(new StringBuilder(word).reverse().toString());
+            }
         }
         return palindromes;
     }
