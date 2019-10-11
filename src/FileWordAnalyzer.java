@@ -16,24 +16,24 @@ public class FileWordAnalyzer {
         return words;
     }
 
-    public List getWordsContainingSubstring(String subString){
+    public List getWordsContainingSubstring(String subString) {
         String[] words = reader.readLines().replace("\n", " ").split(" ");
         List<String> wordsContainsSubString = new ArrayList<>();
-        for (String word : words){
-            if (word.contains(subString)){
+        for (String word : words) {
+            if (word.contains(subString)) {
                 wordsContainsSubString.add(word);
             }
         }
         return wordsContainsSubString;
     }
 
-    public List getStringsWhichPalindromes(){
+    public List getStringsWhichPalindromes() {
         String[] words = reader.readLines().replace("\n", " ").split(" ");
-
+        List<String> palindromes = new ArrayList<>();
+        for (String word : words) {
+            palindromes.add(new StringBuilder(word).reverse().toString());
+        }
+        return palindromes;
     }
 
-    public static void main(String[] args) {
-        FilePartReader reader = new FilePartReader("doc/this.txt", 1, 5);
-        new FileWordAnalyzer(reader);
-    }
 }
