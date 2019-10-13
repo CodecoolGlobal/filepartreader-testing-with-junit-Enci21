@@ -7,21 +7,14 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FileWordAnalyzerTest {
-    private FilePartReader reader = new FilePartReader("doc/test.txt", 1, 4);
+    private FilePartReader reader = new FilePartReader("doc/test.txt", 0, 7);
     private FileWordAnalyzer analyzer = new FileWordAnalyzer(reader);
 
     @Test
     public void testGetWordsOrderedAlphabeticallyIsAlphabetically(){
         String[] words = reader.readLines().split("\n");
-        String[] wordsAlphabetically = {"alma", "ananász", "banán", "eper", "kávé", "körte", "sajt", "szőlő"};
-        for (String word : words){
-            System.out.println(word);
-        }
-        System.out.println();
-        for (String w : wordsAlphabetically){
-            System.out.println(w);
-        }
-        assertEquals(wordsAlphabetically, analyzer.getWordsOrderedAlphabetically());
+        String[] wordsAlphabetically = {"alma", "ananász", "banán", "eper", "körte", "sajt", "szőlő"};
+        assertArrayEquals(wordsAlphabetically, analyzer.getWordsOrderedAlphabetically());
     }
 
     @Test

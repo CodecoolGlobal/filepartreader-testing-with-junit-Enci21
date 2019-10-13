@@ -4,7 +4,7 @@ import java.util.List;
 
 public class FileWordAnalyzer {
 
-    private FilePartReader reader = new FilePartReader("doc/this.txt", 1, 5);
+    private FilePartReader reader = new FilePartReader("doc/test.txt", 0, 7);
 
     public FileWordAnalyzer(FilePartReader reader) {
 
@@ -17,7 +17,7 @@ public class FileWordAnalyzer {
     }
 
     public List getWordsContainingSubstring(String subString) {
-        String[] words = reader.readLines().replace("\n", " ").split("\n");
+        String[] words = reader.readLines().split("\n");
         List<String> wordsContainsSubString = new ArrayList<>();
         for (String word : words) {
             if (word.contains(subString)) {

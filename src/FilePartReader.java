@@ -21,15 +21,14 @@ public class FilePartReader {
         }
     }
 
-    public String read(){
+    public String read() {
         try {
             return new String(Files.readAllBytes(Paths.get(filePath)));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println("This file doesn't exist.");
-        return  "";
+        return "";
     }
 
     public String readLines() {
@@ -40,11 +39,13 @@ public class FilePartReader {
                 returnLines.append(content[i]);
                 returnLines.append("\n");
             }
+            return returnLines.toString();
+        } else {
+            for (int i = fromLine; i < toLine; i++) {
+                returnLines.append(content[i]);
+                returnLines.append("\n");
+            }
+            return returnLines.toString();
         }
-        return returnLines.toString();
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
     }
 }
